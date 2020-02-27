@@ -1,6 +1,14 @@
-<h1> You want to create a new Elder Person?</h1>
-<h2>You came to the wrong place. We are under construction</h2>
-
+<div class="wrapper">
+  <nav id="sidebar">
+    <%= render "/pages/home" %>
+  </nav>
+  <div id="content">
+    <h1> You want to create a new Elder Person?</h1>
+    <h2>You came to the wrong place. We are under construction</h2>
+    <div style="text-align: center;">
+      <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
+    </div>
+  </div>
 
 <%= simple_form_for(@experience) do |f| %>
   <%= f.input :photo, as: :file %>
@@ -11,3 +19,4 @@
   <%= f.input :location %>
   <%= f.button :submit %>
 <% end %>
+</div>
