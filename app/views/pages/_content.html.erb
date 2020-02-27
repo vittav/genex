@@ -23,39 +23,31 @@
             </div>
         </div>
     </nav>
-    <!-- The cards model -->
-    <div class="notification">
-      <p>Experience</p>
-      <div class="notification-content">
-        <p>Name</p>
-      </div>
-      <div class="notification-content">
-        <p>Age</p>
-      </div>
-      <div class="notification-content">
-        <p>Language</p>
-      </div>
-      <div class="notification-content">
-        <p>Skill</p>
-      </div>
-    </div>
     <!-- The Cards -->
     <% @experiences.each do |experience| %>
+      <%= link_to experience_path(experience), class: "text-decoration-none" do %>
       <div class="notification">
-        <img src='https://media.istockphoto.com/photos/portrait-of-classic-grumpy-old-man-picture-id987461788?k=6&m=987461788&s=612x612&w=0&h=m3SoaVyz2tCwB8fbanUiWqvHRAXVniXKuLFKyPEdIx4=' class="avatar-large mx-2" />
-        <div class="notification-content">
-          <p>Name</p>
+        <div class="notification-content col-2">
+          <% if experience.gender == "Male" %>
+             <%= image_tag("old_man") %>
+          <% else %>
+              <%= image_tag("old_woman") %>
+          <% end %>
         </div>
-        <div class="notification-content">
-          <p>Age</p>
+        <div class="notification-content col-3">
+          <p><%= "#{experience.first_name} #{experience.last_name}" %></p>
         </div>
-        <div class="notification-content">
+        <div class="notification-content col-2">
+          <p><%= "#{experience.age} years" %></p>
+        </div>
+        <div class="notification-content col-3">
           <p>Language</p>
         </div>
-        <div class="notification-content">
+        <div class="notification-content col-2">
           <p>Skill</p>
         </div>
       </div>
+      <% end %>
     <% end %>
     <div class="line"></div>
 

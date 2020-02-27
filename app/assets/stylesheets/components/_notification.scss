@@ -10,6 +10,10 @@
 .notification .notification-content {
   flex-grow: 1;
   padding: 0 24px;
+  img {
+      width: 70px;
+  border-radius: 10%;
+  }
 }
 
 .notification p {
