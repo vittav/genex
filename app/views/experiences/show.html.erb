@@ -1,9 +1,37 @@
-<%= render "/pages/home" %>
-<div class="container card d-flex align-items-center my-4 ">
-  <h3><%= @experience.last_name %>, <%= @experience.first_name %></h3>
-  <h4><%= @experience.gender %></h4>
-  <h4><%= @experience.age %> years old</h4>
-  <br>
+<div class="wrapper">
+  <nav id="sidebar">
+    <%= render "/pages/home" %>
+  </nav>
+  <div id="content">
+    <div class="d-flex justify-content-center">
+    <%= image_tag("logo_genx", height: '100', width: '100') %>
+  </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Collapse sidebar button -->
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button>
+            <!-- Filter button -->
+            <%= link_to "Offer an experience!", new_experience_path, class: "btn btn-ghost" %>
+            <div>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fas fa-filter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container card d-flex align-items-center my-4 ">
+      <h3><%= @experience.last_name %>, <%= @experience.first_name %></h3>
+      <h4><%= @experience.gender %></h4>
+      <h4><%= @experience.age %> years old</h4>
+      <br>
+    </div>
+    <div style="text-align: center;">
+      <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
+    </div>
+  </div>
 </div>
-
-<%= link_to 'Back', experiences_path %>

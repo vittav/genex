@@ -5,6 +5,7 @@
   background: white;
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .notification .notification-content {
@@ -31,8 +32,9 @@
   transition: ease .3s;
 }
 
-.notification:hover .notification-actions {
-  opacity: 1;
+.notification:hover {
+  background: #F5F9E9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .notification .notification-actions a {

@@ -1,29 +1,11 @@
 <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
-              <div class="avatar-bordered d-flex">
-                <%= image_tag("old_man") %>
-                <p>Current_user.name</p>
-              </div>
-
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="#" class="fas fa-user-friends">  My experiences</a>
-                </li>
-                <li>
-                    <a href="#" class="fas fa-chart-line">  My activities</a>
-                </li>
-                <li>
-                    <a href="#" class="fas fa-cog">  Settings</a>
-                </li>
-            </ul>
-            <%= link_to 'Sign-out', destroy_user_session_path(@current_user),
-                        data: {:confirm => 'Are you sure?'}, :method => :delete %>
-        </nav>
+  <nav id="sidebar">
+    <%= render "/pages/home" %>
+  </nav>
     <!-- Page content is displayed _content.html.erb -->
-    <%= render "/pages/content" %>
-    </div>
+  <%= render "/pages/content" %>
+</div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
