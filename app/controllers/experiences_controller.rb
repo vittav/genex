@@ -16,7 +16,6 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(strong_params)
     @experience.save
     @experience.user = current_user
-    raise
     if @experience.save
       redirect_to 'home'
     else
