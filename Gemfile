@@ -33,3 +33,6 @@ gem 'devise'
 
 # Gem to generate fake entries in the DB
 gem 'faker'
+
+# Gem to use Cloudinary image hosting with Active Storage
+gem 'cloudinary', '~> 1.12.0'

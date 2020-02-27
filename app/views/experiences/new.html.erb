@@ -9,4 +9,14 @@
       <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
     </div>
   </div>
+
+<%= simple_form_for(@experience) do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :gender %>
+  <%= f.input :age %>
+  <%= f.input :location %>
+  <%= f.button :submit %>
+<% end %>
 </div>
