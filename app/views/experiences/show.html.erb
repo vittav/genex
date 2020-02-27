@@ -2,6 +2,11 @@
   <h3><%= @experience.last_name %>, <%= @experience.first_name %></h3>
   <h4><%= @experience.gender %></h4>
   <h4><%= @experience.age %> years old</h4>
+
+  <% if @experience.photo.attached? %>
+  <%= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+
   <br>
 </div>
 

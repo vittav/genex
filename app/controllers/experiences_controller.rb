@@ -15,6 +15,7 @@ class ExperiencesController < ApplicationController
   def create
     @experience = Experience.new(strong_params)
     @experience.save
+    @experience.user = current_user
     if @experience.save
       redirect_to 'home'
     else
@@ -40,7 +41,7 @@ class ExperiencesController < ApplicationController
   private
 
   def strong_params
-    params.require(:experience).permit(:first_name, :last_name, :gender, :age, :location)
+    params.require(:experience).permit(:first_name, :last_name, :gender, :age, :location, :photo)
   end
 
 end

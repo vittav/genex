@@ -1,2 +1,13 @@
 <h1> You want to create a new Elder Person?</h1>
 <h2>You came to the wrong place. We are under construction</h2>
+
+
+<%= simple_form_for(@experience) do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :gender %>
+  <%= f.input :age %>
+  <%= f.input :location %>
+  <%= f.button :submit %>
+<% end %>
