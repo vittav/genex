@@ -17,62 +17,8 @@
                 </li>
             </ul>
         </nav>
-
-        <!-- Page Content  -->
-        <div id="content">
-          <!-- logo -->
-          <div class="d-flex justify-content-center">
-            <%= image_tag("logo_genx") %>
-          </div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <!-- Collapse sidebar button -->
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span></span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-                    <!-- Filter button -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#"><i class="fas fa-filter"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- The cards model -->
-            <div class="notification">
-              <p>Experience</p>
-              <div class="notification-content">
-                <p>Name</p>
-              </div>
-              <div class="notification-content">
-                <p>Language</p>
-              </div>
-              <div class="notification-content">
-                <p>Skill</p>
-              </div>
-            </div>
-            <!-- The Cards -->
-            <div class="notification">
-              <img src='https://media.istockphoto.com/photos/portrait-of-classic-grumpy-old-man-picture-id987461788?k=6&m=987461788&s=612x612&w=0&h=m3SoaVyz2tCwB8fbanUiWqvHRAXVniXKuLFKyPEdIx4=' class="avatar-large mx-2" />
-              <div class="notification-content">
-                <p>Name</p>
-              </div>
-              <div class="notification-content">
-                <p>Language</p>
-              </div>
-              <div class="notification-content">
-                <p>Skill</p>
-              </div>
-            </div>
-            <div class="line"></div>
-
-        </div>
+    <!-- Page content is displayed _content.html.erb -->
+    <%= render "content" %>
     </div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
