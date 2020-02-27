@@ -16,6 +16,8 @@
                     <a href="#" class="fas fa-cog">  Settings</a>
                 </li>
             </ul>
+            <%= link_to 'Sign-out', destroy_user_session_path(@current_user),
+                        data: {:confirm => 'Are you sure?'}, :method => :delete %>
         </nav>
     <!-- Page content is displayed _content.html.erb -->
     <%= render "content" %>
@@ -43,3 +45,7 @@
             });
         });
     </script>
+
+
+
+

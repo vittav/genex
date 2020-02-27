@@ -27,3 +27,9 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+# Gem to controll user sign-in/sign-out
+gem 'devise'
+
+# Gem to generate fake entries in the DB
+gem 'faker'
