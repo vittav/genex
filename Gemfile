@@ -30,3 +30,6 @@ end
 
 # Gem to controll user sign-in/sign-out
 gem 'devise'
+
+# Gem to generate fake entries in the DB
+gem 'faker'

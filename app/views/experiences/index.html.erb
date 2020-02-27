@@ -1,0 +1,13 @@
+<h1>Look at all these old guys!</h1>
+<br>
+
+<% @experiences.each do |experience| %>
+  <%= link_to experience_path(experience), class: "text-decoration-none" do %>
+    <div class="container card d-flex align-items-center my-4 ">
+      <h3><%= experience.last_name %>, <%= experience.first_name %></h3>
+      <h4><%= experience.gender %></h4>
+      <h4><%= experience.age %> years old</h4>
+      <br>
+    </div>
+  <% end %>
+<% end %>
