@@ -3,20 +3,21 @@
     <%= render "/pages/home" %>
   </nav>
   <div id="content">
-    <h1> You want to create a new Elder Person?</h1>
-    <h2>You came to the wrong place. We are under construction</h2>
-    <div style="text-align: center;">
-      <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
+    <div class="d-flex justify-content-center">
+      <%= image_tag("logo_genx", height: '100', width: '100') %>
     </div>
+    <h1>Create an experience!</h1>
+    <%= simple_form_for(@experience) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :gender %>
+      <%= f.input :age %>
+      <%= f.input :location %>
+      <%= f.input :photo, as: :file %>
+      <div class="d-flex justify-content-between">
+        <%= f.button :submit, class: "btn btn-info" %>
+        <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
+      </div>
+    <% end %>
   </div>
-
-<%= simple_form_for(@experience) do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :gender %>
-  <%= f.input :age %>
-  <%= f.input :location %>
-  <%= f.button :submit %>
-<% end %>
 </div>
