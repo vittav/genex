@@ -1,10 +1,12 @@
 <div class="wrapper">
   <nav id="sidebar">
-    <%= render "/pages/home" %>
+    <%= render "/pages/sidebar" %>
   </nav>
   <div id="content">
     <div class="d-flex justify-content-center">
+      <%= link_to root_path do %>
       <%= image_tag("logo_genx", height: '100', width: '100') %>
+      <% end %>
     </div>
     <h1>Create an experience!</h1>
     <%= simple_form_for(@experience) do |f| %>
