@@ -21,6 +21,11 @@ class ExperiencePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def my_experiences?
+    true
+    # record.user == user
+  end
+
   class Scope < Scope
     def resolve
       scope.all

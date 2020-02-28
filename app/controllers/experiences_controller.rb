@@ -44,6 +44,11 @@ class ExperiencesController < ApplicationController
     redirect_to 'home'
   end
 
+  def my_experiences
+    @experiences = Experience.where(user_id: current_user)
+    authorize @experiences
+  end
+
   private
 
   def strong_params
