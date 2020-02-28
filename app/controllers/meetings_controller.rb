@@ -37,7 +37,7 @@ class MeetingsController < ApplicationController
   end
 
   def my_meetings
-    @meetings = Meeting.all.where(user_id: current_user)
+    @meetings = Meeting.where(user_id: current_user)
   end
 
   private

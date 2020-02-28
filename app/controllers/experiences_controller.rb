@@ -45,7 +45,8 @@ class ExperiencesController < ApplicationController
   end
 
   def my_experiences
-    @experiences = Experience.all.where(user_id: current_user)
+    @experiences = Experience.where(user_id: current_user)
+    authorize @experiences
   end
 
   private

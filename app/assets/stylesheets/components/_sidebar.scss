@@ -21,10 +21,11 @@
     color: #222;
     transition: all 0.3s;
     border-right: 1px solid #ddd;
+    margin-left: -250px;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+  margin-left: 0;
 }
 
 #sidebar .sidebar-header {
