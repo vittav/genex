@@ -1,0 +1,23 @@
+<div class="avatar-bordered d-flex">
+  <%= image_tag("old_man") %>
+  <p>Current_user.name</p>
+</div>
+
+<ul class="list-unstyled components">
+  <li class="<%= "active" if defined?(active) && active == "my_experiences" %>">
+    <%= link_to " My experiences", my_experiences_path, class:"fas fa-user-friends" %>
+  </li>
+  <li class="<%= "active" if defined?(active) && active ==  "my_meetings" %>">
+    <%= link_to " My meetings", my_meetings_path, class:"fas fa-calendar-alt" %>
+  </li>
+  <li class="<%= "active" if defined?(active) && active == "my_activities" %>">
+    <%= link_to " My activities", "my_activities_path", class:"fas fa-chart-line" %>
+  </li>
+  <li class="<%= "active" if defined?(active) && active == "my_settings" %>">
+    <%= link_to " Settings", "my_experiences_path", class:"fas fa-cog" %>
+  </li>
+</ul>
+<div class="d-flex justify-content-center">
+<%= link_to 'Sign-out', destroy_user_session_path(@current_user),
+          data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-dark" %>
+</div>
