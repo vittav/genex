@@ -10,6 +10,7 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+    authorize @meeting
   end
 
   def create
