@@ -1,5 +1,13 @@
 class MeetingPolicy < ApplicationPolicy
 
+  def index?
+    true
+  end
+
+  def show?
+    true
+  end
+
   def new?
     create?
   end
@@ -23,9 +31,7 @@ class MeetingPolicy < ApplicationPolicy
 
   def my_meetings?
     true
-    # record.user == user
   end
-
 
   class Scope < Scope
     def resolve
