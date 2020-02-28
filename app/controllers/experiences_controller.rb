@@ -1,7 +1,9 @@
 class ExperiencesController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @experiences = Experience.all
+    @experiences = policy_scope(Experience).order(created_at: :desc)
   end
 
   def show
@@ -10,12 +12,13 @@ class ExperiencesController < ApplicationController
 
   def new
     @experience = Experience.new
+    authorize @experience
   end
 
   def create
     @experience = Experience.new(strong_params)
-    @experience.save
     @experience.user = current_user
+    authorize @experience
     if @experience.save
       redirect_to 'home'
     else
@@ -25,15 +28,18 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
+    authorize @experience
   end
 
   def update
     @experience = Experience.find(params[:id])
+    authorize @experience
     @experience.update(strong_params)
   end
 
   def destroy
     @experience = Experience.find(params[:id])
+    authorize @experience
     @experience.destroy
     redirect_to 'home'
   end

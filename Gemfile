@@ -36,3 +36,6 @@ gem 'faker'
 
 # Gem to use Cloudinary image hosting with Active Storage
 gem 'cloudinary', '~> 1.12.0'
+
+# Used to implement authorization(users only mess with their own stuff)
+gem 'pundit'
