@@ -41,17 +41,17 @@
             who is fluent in <strong>Language</strong> and likes to talk about <strong>skill</strong>.</p>
         </div>
       </div>
-    </div>
-    <div style="text-align: center;">
+    <div class="d-flex justify-content-between mx-4">
       <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
-    </div>
 
     <% if policy(@experience).update? %>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+        Edit Experience
       </button>
     <% end %>
+    </div>
+    </div>
 
   </div>
 
