@@ -17,8 +17,8 @@
     // background: #FFF8F0;
     // background: #503D3F;
     // background: #29342A;
-    background: #1B593C;
-    color: #222;
+    background: #31A36E;
+    color: #e3e3dc;
     transition: all 0.3s;
     border-right: 1px solid #ddd;
     margin-left: -250px;
@@ -53,7 +53,7 @@
 
 #sidebar ul li a:hover {
     color: #fff;
-    background-color: #728087;
+    background-color: #E3C322;
 }
 
 #sidebar ul li.active>a,
@@ -99,6 +99,13 @@ a.download {
 
 a.article,
 a.article:hover {
-    background: #728087 !important;
-    color: #222 !important;
+    background: #E3C322 !important;
+    color: #E3C322 !important;
+}
+
+
+// This toggles the color of the sidebar
+li.active .fas {
+    color: #fff;
+    background-color: #fff;
 }
