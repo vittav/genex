@@ -14,5 +14,7 @@
       <a href="#" class="fas fa-cog">  Settings</a>
   </li>
 </ul>
+<div class="d-flex justify-content-center">
 <%= link_to 'Sign-out', destroy_user_session_path(@current_user),
-          data: {:confirm => 'Are you sure?'}, :method => :delete %>
+          data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-dark" %>
+</div>

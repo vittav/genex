@@ -13,7 +13,11 @@
   padding: 0 24px;
   img {
       width: 70px;
-  border-radius: 10%;
+      height: 70px;
+      object-fit: contain;
+      object-position: 20% 10px;
+      overflow:hidden;
+      border-radius: 20%;
   }
 }
 
@@ -45,4 +49,14 @@
 
 .notification .notification-actions a:hover {
   color: #555555;
+}
+
+.notification-show {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }

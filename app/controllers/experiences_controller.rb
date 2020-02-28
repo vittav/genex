@@ -20,7 +20,7 @@ class ExperiencesController < ApplicationController
     @experience.user = current_user
     authorize @experience
     if @experience.save
-      redirect_to 'home'
+      redirect_to root_path
     else
       render 'new'
     end
