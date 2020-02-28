@@ -10,6 +10,7 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+    authorize @meeting
   end
 
   def create
@@ -38,6 +39,7 @@ class MeetingsController < ApplicationController
 
   def my_meetings
     @meetings = Meeting.where(user_id: current_user)
+    authorize @meetings
   end
 
   private
