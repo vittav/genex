@@ -30,7 +30,32 @@
         </div>
     </nav>
     <!-- The Cards -->
-
+    <h1>Experiences I Own:</h1>
+    <% @meetings.each do |meeting| %>
+      <% if meeting.experience.user == current_user %>
+        <div class="my-3">
+          <%= meeting.user.email %>
+          <%= current_user.email %>
+          <%= "On #{meeting.scheduled_time},
+          you will be meeting #{meeting.experience.first_name}
+                              #{meeting.experience.last_name},
+                              at #{meeting.location}" %>
+        </div>
+      <% end %>
+      <% end %>
+        <h1>Experiences I booked:</h1>
+          <% @meetings.each do |meeting| %>
+            <% if meeting.experience.user != current_user %>
+              <div class="my-3">
+                <%= meeting.user.email %>
+                <%= current_user.email %>
+                <%= "On #{meeting.scheduled_time},
+                you will be meeting #{meeting.experience.first_name}
+                                    #{meeting.experience.last_name},
+                                    at #{meeting.location}" %>
+              </div>
+            <% end %>
+    <% end %>
 </div>
 </div>
 
