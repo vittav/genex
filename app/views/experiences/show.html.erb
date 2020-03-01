@@ -1,6 +1,6 @@
 <div class="wrapper">
   <nav id="sidebar">
-    <%= render "/pages/home" %>
+    <%= render "/pages/sidebar" %>
   </nav>
   <div id="content">
     <div class="d-flex justify-content-center">
@@ -43,21 +43,23 @@
             who is fluent in <strong>Language</strong> and likes to talk about <strong>skill</strong>.</p>
         </div>
       </div>
+    <div class="d-flex justify-content-between mx-4">
     </div>
      <div style="text-align: center;">
-      <%= link_to 'Book a meeting (or a room)', experiences_path, class: "btn btn-warning" %>
+      <%= link_to 'Book a meeting (or a room)', new_experience_meeting_path(@experience), class: "btn btn-warning" %>
     </div>
     <br>
     <div style="text-align: center;">
       <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
-    </div>
 
     <% if policy(@experience).update? %>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+        Edit Experience
       </button>
     <% end %>
+    </div>
+    </div>
 
   </div>
 

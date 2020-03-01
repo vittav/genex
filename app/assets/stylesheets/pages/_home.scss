@@ -1,5 +1,4 @@
 // Specific CSS for your home-page
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -86,4 +85,9 @@ a:focus {
     #sidebarCollapse span {
         display: none;
     }
+}
+
+
+.container .sign-in {
+  width: 500px;
 }

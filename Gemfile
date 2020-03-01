@@ -39,3 +39,6 @@ gem 'cloudinary', '~> 1.12.0'
 
 # Used to implement authorization(users only mess with their own stuff)
 gem 'pundit'
+
+# Used to implement datepicker in date forms
+gem 'bootstrap-datepicker-rails'
