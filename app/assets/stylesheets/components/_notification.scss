@@ -13,11 +13,11 @@
   padding: 0 24px;
   img {
       width: 70px;
-      height: 70px;
-      object-fit: contain;
-      object-position: 20% 10px;
+      height: 100%;
+      // object-fit: contain;
+      // object-position: 20% 10px;
       overflow:hidden;
-      border-radius: 20%;
+      border-radius: 50%;
   }
 }
 

@@ -26,16 +26,15 @@
         </div>
     </nav>
     <!-- The Cards -->
+    <div class="separation"></div>
     <% @experiences.each do |experience| %>
       <%= link_to experience_path(experience), class: "text-decoration-none" do %>
       <div class="notification">
         <div class="notification-content col-2">
           <% if experience.photo.attached? == true %>
             <%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %>
-          <% elsif experience.gender == "Male" %>
-            <%= image_tag("old_man") %>
           <% else %>
-            <%= image_tag("old_woman") %>
+            <img src="https://kitt.lewagon.com/placeholder/users/random" alt="">
           <% end %>
         </div>
         <div class="notification-content col-3">
