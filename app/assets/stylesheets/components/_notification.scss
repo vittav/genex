@@ -41,13 +41,17 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.notification .notification-actions a {
+.notification .notification-actions p {
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
 }
 
-.notification .notification-actions a:hover {
+.notification:hover .notification-actions {
+  opacity: 1;
+}
+
+.notification .notification-actions p:hover {
   color: #555555;
 }
 

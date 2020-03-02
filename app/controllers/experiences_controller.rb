@@ -42,7 +42,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     authorize @experience
     @experience.destroy
-    redirect_to 'home'
+    redirect_to :root
   end
 
   def my_experiences
