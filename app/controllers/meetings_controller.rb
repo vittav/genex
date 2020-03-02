@@ -10,10 +10,14 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+    @experience = Experience.find(params[:experience_id])
+    authorize @meeting
+    authorize @experience
   end
 
   def create
     @meeting = Meeting.new(strong_params)
+    @meeting.experience_id = params[:experience_id]
     @meeting.user = current_user
     authorize @meeting
     if @meeting.save
