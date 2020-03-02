@@ -1,0 +1,108 @@
+<%= render 'navbar' %>
+  <!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d26kajfrxb04kx.cloudfront.net/wp-content/uploads/2018/02/Sixty-and-Me_Why-Women-Over-60-Should-Enjoy-Friendships-with-Older-People.jpg);">
+  <div class="container message">
+    <h1>Gen-ex will make you fulfill your goals!</h1>
+    <p>Exercise your best skills while meeting different people from all around the world!</p>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" placeholder="Find an experience by name, language or skill" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+         <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="mid-session">
+  <div class="cards container">
+    <div class="card-message">
+      <div>
+        <i class="fab fa-connectdevelop"></i>
+      </div>
+      <div class="card-title">
+        Connect
+      </div>
+      <div class="card-description">
+        Connect to people in your neighborhood
+      </div>
+    </div>
+    <div class="card-message">
+      <div>
+        <i class="fa fa-hands-helping"></i>
+      </div>
+      <div class="card-title">
+        Help
+      </div>
+      <div class="card-description">
+        Help other people achieve their goals
+      </div>
+    </div>
+    <div class="card-message">
+      <div>
+        <i class="fa fa-share-alt"></i>
+      </div>
+      <div class="card-title">
+        Share
+      </div>
+      <div class="card-description">
+        Share your knowledge to the new generation
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="cards">
+    <div class="card-trip">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>Title here</h2>
+          <p>Short description here!</p>
+        </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+      </div>
+    </div>
+<div class="card-trip">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>Title here</h2>
+          <p>Short description here!</p>
+        </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+      </div>
+    </div>
+<div class="card-trip">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>Title here</h2>
+          <p>Short description here!</p>
+        </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+      </div>
+    </div>
+<div class="card-trip">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>Title here</h2>
+          <p>Short description here!</p>
+        </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+      </div>
+    </div>
+<div class="card-trip">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>Title here</h2>
+          <p>Short description here!</p>
+        </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render '/pages/footer' %>

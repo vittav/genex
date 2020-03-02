@@ -1,6 +1,6 @@
 class Experience < ApplicationRecord
   belongs_to :user
-  has_many :meetings
+  has_many :meetings, dependent: :destroy
   has_many :languages , dependent: :destroy
   has_many :skills, dependent: :destroy
   # has_many :users, through :meetings

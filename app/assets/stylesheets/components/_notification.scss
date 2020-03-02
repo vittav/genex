@@ -13,11 +13,11 @@
   padding: 0 24px;
   img {
       width: 70px;
-      height: 70px;
-      object-fit: contain;
-      object-position: 20% 10px;
+      height: 100%;
+      // object-fit: contain;
+      // object-position: 20% 10px;
       overflow:hidden;
-      border-radius: 20%;
+      border-radius: 50%;
   }
 }
 
@@ -41,13 +41,17 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.notification .notification-actions a {
+.notification .notification-actions p {
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
 }
 
-.notification .notification-actions a:hover {
+.notification:hover .notification-actions {
+  opacity: 1;
+}
+
+.notification .notification-actions p:hover {
   color: #555555;
 }
 
