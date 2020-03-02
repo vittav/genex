@@ -20,9 +20,18 @@ class ExperiencesController < ApplicationController
     @experience.user = current_user
     authorize @experience
     if @experience.save
+      params_language = params[:experience][:language]
+      params_skill = params[:experience][:skill]
+      @language = Language.new(name: params_language[:name], level: params_language[:level], experience_id: current_user.experience.last.id)
+      @skill = Skill.new(name: params_skill[:name], level: params_skill[:level], description: params_skill[:description], experience_id: current_user.experience.last.id)
+      @language.save
+      @skill.save
+    raise
       redirect_to root_path
+      flash[:success] = "Experience created"
     else
       render 'new'
+      flash[:danger] = "Experience not created"
     end
   end
 
