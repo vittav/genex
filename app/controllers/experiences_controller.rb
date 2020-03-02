@@ -26,12 +26,11 @@ class ExperiencesController < ApplicationController
       @skill = Skill.new(name: params_skill[:name], level: params_skill[:level], description: params_skill[:description], experience_id: current_user.experience.last.id)
       @language.save
       @skill.save
-    raise
       redirect_to root_path
-      flash[:success] = "Experience created"
+      #flash[:success] = "Experience created"
     else
       render 'new'
-      flash[:danger] = "Experience not created"
+      #flash[:danger] = "Experience not created"
     end
   end
 
