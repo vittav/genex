@@ -16,6 +16,22 @@
       <%= f.input :age %>
       <%= f.input :location %>
       <%= f.input :photo, as: :file %>
+
+        <h1>Create a Language for your Experience</h1>
+        <%= f.simple_fields_for :language do |lingua| %>
+          <%= lingua.input :name, label: "Language Name" %>
+          <%= lingua.input :level, label: "Language Level" %>
+        <% end %>
+
+        <h1>Create a Skill for your Experience</h1>
+        <%= f.simple_fields_for :skill do |ability| %>
+          <%= ability.input :name, label:"Skill Name"  %>
+          <%= ability.input :level, label: "Skill Level" %>
+          <%= ability.input :description, label: "Skill description" %>
+        <% end %>
+
+
+
       <div class="d-flex justify-content-between">
         <%= f.button :submit, class: "btn btn-info" %>
         <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
