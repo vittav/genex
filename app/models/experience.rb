@@ -9,4 +9,8 @@ class Experience < ApplicationRecord
   has_one_attached :photo
   validates :first_name, uniqueness: { scope: :last_name,
     message: "There is already an entry with this name" }
+
+  geocoded_by :location
+  # before_save :geocode, if: ->(experience){ experience.location.present? }
+  after_validation :geocode, if: :will_save_change_to_location?
 end

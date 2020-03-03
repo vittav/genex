@@ -46,15 +46,52 @@ user2 = User.new(
   user2.save!
 puts "User Created"
 
-puts "Creating 30 experiences"
+# puts "Creating 30 experiences"
 
-30.times do
+# 30.times do
+#   experience = Experience.new(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     gender: Faker::Gender.binary_type,
+#     age: rand(65..90),
+#     location: Faker::Address.city,
+#     user: User.all.sample
+#     )
+#   experience.save!
+#   language = Language.new(experience_id: experience.id, name: LANGUAGES.sample, level: LEVEL.sample)
+#   language.save!
+#   skill = Skill.new(experience_id: experience.id, name: SKILLS.sample, level: LEVEL.sample, description: "veiote's ability")
+#   skill.save!
+# end
+
+# puts "30 experiences created successfully"
+
+
+
+
+# ===================================================
+puts "TEST - Creating 8 experiences with location equal to all
+McDonald's from Mato Grosso"
+
+mcdonalds_mato_grosso =
+[
+"Avenida Afonso Pena, 1620 - Vila Cidade, Campo Grande",
+"Avenida Fernando Corrêa da Costa, 2058 - Jardim Petrópolis, Cuiabá",
+"Avenida Brasilia, 177 - Jardim das Américas, Cuiabá",
+"Avenida Rubens de Mendonça, 1466 - Bosque da Saúde, Cuiabá",
+"Avenida Historiador Rubens de Mendonça, 3300 - Bosque da Saúde, Cuiabá",
+"Avenida Isaac Povoas, 81 - Popular, Cuiabá",
+"Avenida Francisco Lacerda de Aguiar 138 - Gilberto Machado, Cachoeiro de Itapemirim",
+"Rua Desembargador José Barros do Valê, 500 - Duque de Caxias, Cuiabá"
+]
+
+mcdonalds_mato_grosso.each do |mcdonald|
   experience = Experience.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     gender: Faker::Gender.binary_type,
     age: rand(65..90),
-    location: Faker::Address.city,
+    location: mcdonald,
     user: User.all.sample
     )
   experience.save!
@@ -64,4 +101,5 @@ puts "Creating 30 experiences"
   skill.save!
 end
 
-puts "30 experiences created successfully"
+puts "8 experiences created successfully"
+
