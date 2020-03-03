@@ -10,11 +10,6 @@ class PagesController < ApplicationController
   def home
 
     @experiences = Experience.new
-    if params[:query].present?
-      redirect_to experiences_path(params[:query])
-    end
-
-
     @experiences = Experience.geocoded
 
     @markers = @experiences.map do |experience|
@@ -23,6 +18,9 @@ class PagesController < ApplicationController
         lng: experience.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { experience: experience })
       }
+    end
+    if params[:query].present?
+      redirect_to experiences_path(params[:query])
     end
 
   end

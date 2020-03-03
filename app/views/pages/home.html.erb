@@ -4,15 +4,13 @@
   <div class="container message">
     <h1>Gen-ex will make you fulfill your goals!</h1>
     <p>Exercise your best skills while meeting different people from all around the world!</p>
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <%= simple_form_for :search, url: experiences_path, method: :get do |f| %>
       <div class="search-form-control form-group">
-        <%= form_tag @experiences_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control string required",
-            placeholder: "Find an experience by name, language or skill"  %>
-          <%= submit_tag "Search", class: "btn btn-flat" %>
-        <% end %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control string required",
+          placeholder: "Find an experience by name, language or skill"  %>
+        <%= submit_tag "Search", class: "btn btn-flat" %>
       </div>
     <% end %>
   </div>

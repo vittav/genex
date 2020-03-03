@@ -4,10 +4,7 @@ class ExperiencesController < ApplicationController
 
   def index
 
-      @experiences = policy_scope(Experience.geocoded).order(created_at: :desc)     
-      if params[:query]
-        @experiences = @experiences.global_search(params[:query])
-      end
+      @experiences = policy_scope(Experience.geocoded).order(created_at: :desc)
 
     # @experiences = policy_scope(Experience).order(created_at: :desc)
 
@@ -17,6 +14,9 @@ class ExperiencesController < ApplicationController
         lat: experience.latitude,
         lng: experience.longitude
       }
+    end
+    if params[:query]
+      @experiences = @experiences.global_search(params[:query])
     end
 
   end
