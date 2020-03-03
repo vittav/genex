@@ -19,13 +19,7 @@
     <div class="container">
       <div class="notification-show d-flex justify-content-between m-3">
         <div>
-            <% if @experience.photo.attached? == true %>
-              <%= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill %>
-            <% elsif @experience.gender == "Male" %>
-              <%= image_tag("old_man") %>
-            <% else %>
-              <%= image_tag("old_woman") %>
-            <% end %>
+            <img src="<%= @experience.img_url %>" alt="" style="width: 350px; ">
         </div>
 
 
@@ -34,8 +28,10 @@
 
         <div>
           <p>This is <%= @experience.gender == "Male" ? "Mr." : "Mrs." %> <%= "#{@experience.first_name} #{@experience.last_name}." %></p>
+        <br><br>
           <p><%= @experience.gender == "Male" ? "He" : "She" %> is a <%= @experience.age %> years old
             who is fluent in <%= @experience.languages.first.name %> and likes to talk about <%= @experience.skills.first.name %>.</p>
+        <br><br>
         </div>
         <h4 style="text-align: center;">Languages I Speak:</h4>
         <div>
