@@ -3,10 +3,22 @@ class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-      @experiences = policy_scope(Experience).order(created_at: :desc)
+
+      @experiences = policy_scope(Experience.geocoded).order(created_at: :desc)     
       if params[:query]
-        @experiences = Experience.global_search(params[:query])
+        @experiences = @experiences.global_search(params[:query])
       end
+
+    # @experiences = policy_scope(Experience).order(created_at: :desc)
+
+
+    @markers = @experiences.map do |experience|
+      {
+        lat: experience.latitude,
+        lng: experience.longitude
+      }
+    end
+
   end
 
   def show

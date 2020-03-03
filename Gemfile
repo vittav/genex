@@ -37,10 +37,15 @@ gem 'faker'
 # Gem to use Cloudinary image hosting with Active Storage
 gem 'cloudinary', '~> 1.12.0'
 
-# Used to implement authorization(users only mess with their own stuff)
+# Gem used to implement authorization(users only mess with their own stuff)
 gem 'pundit'
 
-# Used to implement datepicker in date forms
+# Gem used to implement datepicker in date forms
 gem 'bootstrap-datepicker-rails'
 
+
 gem 'pg_search', '~> 2.3.0'
+
+# Gem used to implement geocoding (geo localization)
+gem 'geocoder'
+
