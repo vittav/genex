@@ -30,33 +30,32 @@
         </div>
     </nav>
     <!-- The Cards -->
-    <% @experiences.each do |experience| %>
-      <%= link_to experience_path(experience), class: "text-decoration-none" do %>
-      <div class="notification">
-        <div class="notification-content col-2">
-          <% if experience.photo.attached? == true %>
-            <%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %>
-          <% elsif experience.gender == "Male" %>
-            <%= image_tag("old_man") %>
-          <% else %>
-            <%= image_tag("old_woman") %>
-          <% end %>
-        </div>
-        <div class="notification-content col-3">
-          <p><%= "#{experience.first_name} #{experience.last_name}" %></p>
-        </div>
-        <div class="notification-content col-2">
-          <p><%= "#{experience.age} years" %></p>
-        </div>
-        <div class="notification-content col-3">
-          <p>Language</p>
-        </div>
-        <div class="notification-content col-2">
-          <p>Skill</p>
-        </div>
-      </div>
+ <div class="cards container m-5">
+      <% @experiences.each do |experience| %>
+      <% if experience.user == current_user %>
+        <%= link_to experience_path(experience), class: "text-decoration-none" do %>
+          <div class="card-trip">
+            <img src="https://kitt.lewagon.com/placeholder/users/random" />
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= "#{experience.first_name} #{experience.last_name}" %></h2>
+                <p><%= "#{experience.age} years" %></p>
+                <p><%= "#{experience.languages.last}" %></p>
+              </div>
+              <div>
+                <h2 class="card-trip-pricing">Booked Meeting</h2>
+                <p><%= "Date: hello" %></p>
+                <p><%= "hi" %></p>
+              </div>
+            </div>
+            <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
+    </div>
+
+
     <div class="line"></div>
 </div>
 </div>
