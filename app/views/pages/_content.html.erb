@@ -21,12 +21,12 @@
         </div>
     </nav>
     <!-- The Cards -->
-    <div class="container m-5">
+    <div class="container my-5">
       <div class="cards">
         <% @experiences.each do |experience| %>
           <%= link_to experience_path(experience), class: "text-decoration-none" do %>
             <div class="card-trip">
-              <img src="<%#= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill %>" />
+              <img src="<%= experience.img_url %>" />
               <div class="card-trip-infos">
                 <div>
                   <h2><%= "#{experience.first_name} #{experience.last_name}" %></h2>

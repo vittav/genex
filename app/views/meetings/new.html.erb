@@ -21,9 +21,10 @@
       <%= "Hi" %>
   <% end %>
   <% @experience.gender == "Male" ? mr= "Mr." : mr = "Mrs." %>
-  <h3>Book a meeting with <%= mr %><%= @experience.first_name %> <%= @experience.last_name %></h3>
-      <h2> You will be able to talk in <%= @experience.languages.first.name %></h2>
-<div class="d-flex" style="width: 100px auto;">
+<div class="d-flex justify-content-center" style="width: 100px auto;">
+    <div>
+  <h2>Book a meeting with <%= mr %><%= @experience.first_name %> <%= @experience.last_name %></h3>
+      <h4> You will be able to talk in <%= @experience.languages.first.name %> and maybe even discuss about <%= @experience.skills.first.name %></h4>
     <%= simple_form_for [@experience, @meeting] do |f| %>
       <%= f.input :location %>
       <%= f.input :scheduled_time, as: :string, required: true, input_html: {class: "datepicker"} %>
@@ -31,6 +32,7 @@
         <%= f.button :submit, label: "Hi", class: "btn btn-info" %>
       </div>
     <% end %>
+    </div>
 </div>
 
 </div>
