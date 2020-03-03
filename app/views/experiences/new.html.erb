@@ -1,41 +1,42 @@
-<div class="wrapper">
-  <nav id="sidebar">
-    <%= render "/pages/sidebar" %>
-  </nav>
-  <div id="content">
+<%= render '/pages/navbar' %>
+  <div id="content container">
     <div class="d-flex justify-content-center">
       <%= link_to root_path do %>
       <%= image_tag("logo_genx", height: '100', width: '100') %>
       <% end %>
     </div>
-    <h1>Create an experience!</h1>
-    <%= simple_form_for(@experience) do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :gender %>
-      <%= f.input :age %>
-      <%= f.input :location %>
-      <%= f.input :photo, as: :file %>
+    <div class="container d-flex m-5 justify-content-around">
+      <div class="mx-5">
 
-        <h1>Create a Language for your Experience</h1>
+      <h3>Create an experience!</h3>
+      <%= simple_form_for(@experience) do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :gender %>
+        <%= f.input :age %>
+        <%= f.input :location %>
+        <%= f.input :photo, as: :file %>
+      </div>
+      <div class="my-3">
+        <h3>Create a Language for your Experience</h3>
         <%= f.simple_fields_for :language do |lingua| %>
           <%= lingua.input :name, label: "Language Name" %>
           <%= lingua.input :level, label: "Language Level" %>
         <% end %>
 
-        <h1>Create a Skill for your Experience</h1>
+        <h3>Create a Skill for your Experience</h3>
         <%= f.simple_fields_for :skill do |ability| %>
           <%= ability.input :name, label:"Skill Name"  %>
           <%= ability.input :level, label: "Skill Level" %>
           <%= ability.input :description, label: "Skill description" %>
         <% end %>
-
-
-
-      <div class="d-flex justify-content-between">
-        <%= f.button :submit, class: "btn btn-info" %>
-        <%= link_to 'Back to Home Page', experiences_path, class: "btn btn-warning" %>
       </div>
+    </div>
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, class: "btn btn-info" %>
+      </div>
+
+
+
     <% end %>
   </div>
-</div>

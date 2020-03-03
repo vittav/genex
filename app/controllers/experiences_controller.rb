@@ -22,6 +22,7 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+    @language = Language.new
     @experience = Experience.find(params[:id])
   end
 

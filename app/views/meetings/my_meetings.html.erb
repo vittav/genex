@@ -1,8 +1,4 @@
-<div class="wrapper">
-        <!-- Sidebar  -->
-  <nav id="sidebar">
-    <%= render "/pages/sidebar", active: "my_meetings" %>
-  </nav>
+<%= render "/pages/navbar" %>
     <!-- Page content is displayed _content.html.erb -->
 <div id="content">
   <!-- logo -->
@@ -12,47 +8,42 @@
     <% end %>
   </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <!-- Collapse sidebar button -->
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span></span>
-            </button>
+        <div class="container-fluid justify-content-center" style="box-shadow: 0 0 5px rgba(0,0,0,0.2);">
             <!-- Filter button -->
-            <%= link_to "Pick a date !", new_experience_path, class: "btn btn-ghost" %>
+            <h2 style="margin: 5px;">Experiences I booked</h2>
             <div>
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fas fa-filter"></i></a>
-                    </li>
-                </ul>
+
             </div>
         </div>
     </nav>
     <!-- The Cards -->
+    <% if @meetings.count == 0 %>
+    <div class="m-3">
+      <h3>Book a meeting with one of our community members. We promise you won't regret it!</h3>
+    </div>
+    <div style="text-align: center">
+      <%= link_to "See members!", experiences_path, class: "btn btn-warning" %>
+    </div>
+    <% else %>
+    <div class="cards container m-5">
+      <% @meetings.each do |meeting| %>
 
-
-        <h1>Experiences I booked:</h1>
-            <div class="cards container m-5">
-              <% @meetings.each do |meeting| %>
-                  <%= link_to experience_path(meeting.experience), class: "text-decoration-none" do %>
-                    <div class="card-trip">
-                      <img src="https://kitt.lewagon.com/placeholder/users/random" />
-                      <div class="card-trip-infos">
-                        <div>
-                          <h2><%= "#{meeting.experience.first_name} #{meeting.experience.last_name}" %></h2>
-                          <p><%= "#{meeting.experience.age} years" %></p>
-                        </div>
-                        <div>
-                        <h2 class="card-trip-pricing"><%= "Date: #{meeting.scheduled_time.strftime("%m/%d/%Y")}" %></h2>
-                        <p><%= "#{meeting.scheduled_time.strftime("Time: %I:%M%p")}" %></p>
-                        </div>
-                      </div>
-                      <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
-                    </div>
-                  <% end %>
-                <% end %>
-
+            <div class="card-trip">
+              <img src="https://kitt.lewagon.com/placeholder/users/random" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= "#{meeting.experience.first_name} #{meeting.experience.last_name}" %></h2>
+                  <p><%= "#{meeting.experience.age} years" %></p>
+                </div>
+                <div>
+                <h2 class="card-trip-pricing"><%= "Date: #{meeting.scheduled_time.strftime("%m/%d/%Y")}" %></h2>
+                <p><%= "From: #{meeting.scheduled_time.strftime("%I:%M%p")} To: #{(meeting.scheduled_time.to_time + 2.hours).to_datetime.strftime("%I:%M%p")}" %></p>
+                </div>
+              </div>
+              <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
             </div>
-</div>
+
+        <% end %>
+    </div>
+    <% end %>
 </div>
