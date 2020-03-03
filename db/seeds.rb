@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
 
 
@@ -46,6 +38,52 @@ user2 = User.new(
   user2.save!
 puts "User Created"
 
+
+
+
+
+
+puts "Creating 10 experiences"
+
+seeds = [
+{location: "Buenos Aires", gender: "Male", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_1_iqdle4.jpg"},
+{location: "Berlin", gender: "Male", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_2_l9q4if.jpg"},
+{location: "Tokyo", gender: "Male", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_3_gc0odz.jpg"},
+{location: "Tel Aviv", gender: "Male", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_4_cb3e2j.jpg"},
+{location: "London", gender: "Male", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_5_ahsbly.jpg"},
+{location: "Mexico", gender: "Female", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_woman_1_ijxngy.jpg"},
+{location: "Paris", gender: "Female", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_woman_2_q40i8u.jpg"},
+{location: "Lisbon", gender: "Female", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257962/seed%20test%20le%20wagon/old_woman_3_pnxzir.jpg"},
+{location: "Rio de Janeiro", gender: "Female", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_woman_4_j9lo76.jpg"},
+{location: "Belo Horizonte", gender: "Female", img_url: "https://res.cloudinary.com/caiazzo14/image/upload/v1583257962/seed%20test%20le%20wagon/old_woman_5_b4ieia.jpg"}
+]
+
+
+seeds.each do |seed|
+  experience = Experience.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    gender: seed[:gender],
+    age: rand(65..90),
+    location: seed[:location],
+    user: User.all.sample,
+    img_url: seed[:img_url]
+    )
+  experience.save!
+  language = Language.new(experience_id: experience.id, name: LANGUAGES.sample, level: LEVEL.sample)
+  language.save!
+  skill = Skill.new(experience_id: experience.id, name: SKILLS.sample, level: LEVEL.sample, description: "veiote's ability")
+  skill.save!
+end
+
+puts "10 experiences created successfully"
+
+
+
+
+
+
+# ==============================================================
 # puts "Creating 30 experiences"
 
 # 30.times do
@@ -65,41 +103,4 @@ puts "User Created"
 # end
 
 # puts "30 experiences created successfully"
-
-
-
-
-# ===================================================
-puts "TEST - Creating 8 experiences with location equal to all
-McDonald's from Mato Grosso"
-
-mcdonalds_mato_grosso =
-[
-"Avenida Afonso Pena, 1620 - Vila Cidade, Campo Grande",
-"Avenida Fernando Corrêa da Costa, 2058 - Jardim Petrópolis, Cuiabá",
-"Avenida Brasilia, 177 - Jardim das Américas, Cuiabá",
-"Avenida Rubens de Mendonça, 1466 - Bosque da Saúde, Cuiabá",
-"Avenida Historiador Rubens de Mendonça, 3300 - Bosque da Saúde, Cuiabá",
-"Avenida Isaac Povoas, 81 - Popular, Cuiabá",
-"Avenida Francisco Lacerda de Aguiar 138 - Gilberto Machado, Cachoeiro de Itapemirim",
-"Rua Desembargador José Barros do Valê, 500 - Duque de Caxias, Cuiabá"
-]
-
-mcdonalds_mato_grosso.each do |mcdonald|
-  experience = Experience.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    gender: Faker::Gender.binary_type,
-    age: rand(65..90),
-    location: mcdonald,
-    user: User.all.sample
-    )
-  experience.save!
-  language = Language.new(experience_id: experience.id, name: LANGUAGES.sample, level: LEVEL.sample)
-  language.save!
-  skill = Skill.new(experience_id: experience.id, name: SKILLS.sample, level: LEVEL.sample, description: "veiote's ability")
-  skill.save!
-end
-
-puts "8 experiences created successfully"
 
