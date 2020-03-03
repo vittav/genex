@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get '/my_experiences', to: 'experiences#my_experiences', as: :my_experiences
 
   get '/home', to: 'pages#home', as: :home
-  root to: 'experiences#index'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

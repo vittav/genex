@@ -31,55 +31,51 @@
     </nav>
     <!-- The Cards -->
     <h1>Experiences I Own:</h1>
-    <% @meetings.each do |meeting| %>
+    <div class="cards container m-5">
+      <% @meetings.each do |meeting| %>
       <% if meeting.experience.user == current_user %>
-        <div class="my-3">
-          <%= meeting.user.email %>
-          <%= current_user.email %>
-          <%= "On #{meeting.scheduled_time},
-          you will be meeting #{meeting.experience.first_name}
-                              #{meeting.experience.last_name},
-                              at #{meeting.location}" %>
-        </div>
-      <% end %>
-      <% end %>
-        <h1>Experiences I booked:</h1>
-          <% @meetings.each do |meeting| %>
-            <% if meeting.experience.user != current_user %>
-              <div class="my-3">
-                <%= meeting.user.email %>
-                <%= current_user.email %>
-                <%= "On #{meeting.scheduled_time},
-                you will be meeting #{meeting.experience.first_name}
-                                    #{meeting.experience.last_name},
-                                    at #{meeting.location}" %>
+        <%= link_to experience_path(meeting.experience), class: "text-decoration-none" do %>
+          <div class="card-trip">
+            <img src="https://kitt.lewagon.com/placeholder/users/random" />
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= "#{meeting.experience.first_name} #{meeting.experience.last_name}" %></h2>
+                <p><%= "#{meeting.experience.age} years" %></p>
+                <p><%= "#{meeting.experience.languages.last}" %></p>
               </div>
-            <% end %>
+              <div>
+                <h2 class="card-trip-pricing">Booked Meeting</h2>
+                <p><%= "Date: #{meeting.scheduled_time.strftime("%m/%d/%Y")}" %></p>
+                <p><%= "#{meeting.scheduled_time.strftime("Time: %I:%M%p")}" %></p>
+              </div>
+            </div>
+            <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
+    </div>
+        <h1>Experiences I booked:</h1>
+            <div class="cards container m-5">
+              <% @meetings.each do |meeting| %>
+                  <%= link_to experience_path(meeting.experience), class: "text-decoration-none" do %>
+                    <div class="card-trip">
+                      <img src="https://kitt.lewagon.com/placeholder/users/random" />
+                      <div class="card-trip-infos">
+                        <div>
+                          <h2><%= "#{meeting.experience.first_name} #{meeting.experience.last_name}" %></h2>
+                          <p><%= "#{meeting.experience.age} years" %></p>
+                        </div>
+                        <div>
+                        <h2 class="card-trip-pricing"><%= "Date: #{meeting.scheduled_time.strftime("%m/%d/%Y")}" %></h2>
+                        <p><%= "#{meeting.scheduled_time.strftime("Time: %I:%M%p")}" %></p>
+                        </div>
+                      </div>
+                      <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
+                    </div>
+                  <% end %>
+                <% end %>
+
+            </div>
 </div>
 </div>
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar, #content').toggleClass('active');
-            });
-
-
-        });
-
-
-    </script>

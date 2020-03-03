@@ -3,7 +3,10 @@ class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @experiences = policy_scope(Experience).order(created_at: :desc)
+      @experiences = policy_scope(Experience).order(created_at: :desc)
+      if params[:query]
+        @experiences = Experience.global_search(params[:query])
+      end
   end
 
   def show

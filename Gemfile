@@ -42,3 +42,5 @@ gem 'pundit'
 
 # Used to implement datepicker in date forms
 gem 'bootstrap-datepicker-rails'
+
+gem 'pg_search', '~> 2.3.0'
