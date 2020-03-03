@@ -26,7 +26,7 @@
       <% if experience.user == current_user %>
         <%= link_to experience_path(experience), class: "text-decoration-none" do %>
           <div class="card-trip">
-            <img src="<%= @experience.img_url %>" alt="" style="width: 350px; ">
+            <img src="<%= experience.img_url %>" alt="">
             <div class="card-trip-infos">
               <div>
                 <h2><%= "#{experience.first_name} #{experience.last_name}" %></h2>
