@@ -42,7 +42,6 @@ puts "User Created"
 
 
 
-
 puts "Creating 10 experiences"
 
 seeds = [

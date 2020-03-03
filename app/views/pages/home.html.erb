@@ -55,62 +55,39 @@
 <div class="container mt-5">
   <div class="cards">
     <div class="card-trip">
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <img src="https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_1_iqdle4.jpg" />
       <div class="card-trip-infos">
         <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+          <h2>Julissa Cassin</h2>
+          <p>Loves to walk!</p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
+        <h2 class="card-trip-pricing">English</h2>
       </div>
     </div>
 <div class="card-trip">
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <img src="https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_guy_2_l9q4if.jpg" />
       <div class="card-trip-infos">
         <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+          <h2>Irving Schulist</h2>
+          <p>Master of Cake Baking</p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
+        <h2 class="card-trip-pricing">French</h2>
       </div>
     </div>
 <div class="card-trip">
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <img src="https://res.cloudinary.com/caiazzo14/image/upload/v1583257961/seed%20test%20le%20wagon/old_woman_4_j9lo76.jpg" />
       <div class="card-trip-infos">
         <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+          <h2>Hilda Wilkinson</h2>
+          <p>Best green thumb in town!</p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-      </div>
-    </div>
-<div class="card-trip">
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-      </div>
-    </div>
-<div class="card-trip">
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
+        <h2 class="card-trip-pricing">Spanish</h2>
       </div>
     </div>
   </div>
+  <div id="map" class="my-4" style="height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
-
-<div id="map" class="container mt-3" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<%#= raise %>
 
 <%= render '/pages/footer' %>
