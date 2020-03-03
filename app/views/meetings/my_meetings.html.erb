@@ -30,31 +30,8 @@
         </div>
     </nav>
     <!-- The Cards -->
-    <h1>Experiences I Own:</h1>
-    <div class="cards container m-5">
-      <% @meetings.each do |meeting| %>
-      <% if meeting.experience.user == current_user %>
-        <%= link_to experience_path(meeting.experience), class: "text-decoration-none" do %>
-          <div class="card-trip">
-            <img src="https://kitt.lewagon.com/placeholder/users/random" />
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= "#{meeting.experience.first_name} #{meeting.experience.last_name}" %></h2>
-                <p><%= "#{meeting.experience.age} years" %></p>
-                <p><%= "#{meeting.experience.languages.last}" %></p>
-              </div>
-              <div>
-                <h2 class="card-trip-pricing">Booked Meeting</h2>
-                <p><%= "Date: #{meeting.scheduled_time.strftime("%m/%d/%Y")}" %></p>
-                <p><%= "#{meeting.scheduled_time.strftime("Time: %I:%M%p")}" %></p>
-              </div>
-            </div>
-            <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-    </div>
+
+
         <h1>Experiences I booked:</h1>
             <div class="cards container m-5">
               <% @meetings.each do |meeting| %>

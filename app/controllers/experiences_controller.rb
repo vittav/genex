@@ -4,17 +4,17 @@ class ExperiencesController < ApplicationController
 
   def index
 
-      @experiences = policy_scope(Experience.geocoded).order(created_at: :desc)
+      # @experiences = policy_scope(Experience.geocoded).order(created_at: :desc)
 
-    # @experiences = policy_scope(Experience).order(created_at: :desc)
+    @experiences = policy_scope(Experience).order(created_at: :desc)
 
 
-    @markers = @experiences.map do |experience|
-      {
-        lat: experience.latitude,
-        lng: experience.longitude
-      }
-    end
+    # @markers = @experiences.map do |experience|
+    #   {
+    #     lat: experience.latitude,
+    #     lng: experience.longitude
+    #   }
+    # end
     if params[:query]
       @experiences = @experiences.global_search(params[:query])
     end
@@ -65,7 +65,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     authorize @experience
     @experience.destroy
-    redirect_to :root
+    redirect_to my_experiences_path
   end
 
   def my_experiences
