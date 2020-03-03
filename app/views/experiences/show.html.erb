@@ -1,7 +1,4 @@
-
-  <nav id="sidebar">
-    <%= render "/pages/sidebar" %>
-  </nav>
+<%= render "/pages/navbar" %>
   <div id="content">
     <div class="d-flex justify-content-center">
       <%= link_to root_path do %>
@@ -10,13 +7,6 @@
   </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <!-- Collapse sidebar button -->
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span></span>
-            </button>
-            <!-- Filter button -->
-            <%= link_to "Offer an experience!", new_experience_path, class: "btn btn-ghost" %>
             <div>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -45,22 +35,45 @@
         <div>
           <p>This is <%= @experience.gender == "Male" ? "Mr." : "Mrs." %> <%= "#{@experience.first_name} #{@experience.last_name}." %></p>
           <p><%= @experience.gender == "Male" ? "He" : "She" %> is a <%= @experience.age %> years old
-            who is fluent in <strong>Language</strong> and likes to talk about <strong>skill</strong>.</p>
+            who is fluent in <%= @experience.languages.first.name %> and likes to talk about <%= @experience.skills.first.name %>.</p>
+        </div>
+        <h4 style="text-align: center;">Languages I Speak:</h4>
+        <div>
+          <% @experience.languages.each do |language| %>
+          <div class="d-flex justify-content-around align-items-center">
+            <div>
+              <p> <%= "Name: #{language.name}" %> </p>
+            </div>
+            <div>
+              <p> <%= "Level: #{language.level}" %></p>
+
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <h4 style="text-align: center;">Skills I Know:</h4>
+        <div>
+          <% @experience.skills.each do |skill| %>
+          <div class="d-flex justify-content-around align-items-center">
+            <div>
+              <p> <%= "Name: #{skill.name}" %> </p>
+            </div>
+
+          </div>
+          <% end %>
         </div>
 
-
-        <div>
+        <div class="text-align-bottom m-3">
           <% if policy(@experience).update? %>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
               Edit Experience
             </button>
 
-            <%= link_to "Delete", experience_path(@experience), method: :delete %>
+            <%= link_to "Delete", experience_path(@experience), method: :delete, class: "btn btn-danger" %>
           <% end %>
         </div>
         </div>
-
       </div>
     <div class="d-flex justify-content-between mx-4">
     </div>
@@ -79,7 +92,7 @@
 
 <!-- --------------------------------------------------- -->
 
-<!-- Modal -->
+<!-- Modal Update-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -108,5 +121,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 

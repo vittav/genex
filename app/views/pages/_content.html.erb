@@ -8,8 +8,9 @@
     <% end %>
   </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-
+        <div class="container-fluid justify-content-center" style="box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+            <!-- Filter button -->
+            <h2 style="margin: 5px;">Book an experience right now!</h2>
             <div>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -25,7 +26,7 @@
         <% @experiences.each do |experience| %>
           <%= link_to experience_path(experience), class: "text-decoration-none" do %>
             <div class="card-trip">
-              <img src="https://kitt.lewagon.com/placeholder/users/random" />
+              <img src="<%#= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill %>" />
               <div class="card-trip-infos">
                 <div>
                   <h2><%= "#{experience.first_name} #{experience.last_name}" %></h2>
