@@ -40,7 +40,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -64,8 +64,8 @@
   font-size: 16px;
   text-align: center;
   color: #7E8B91;
-
 }
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

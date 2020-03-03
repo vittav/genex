@@ -41,7 +41,7 @@ class MeetingsController < ApplicationController
   end
 
   def my_meetings
-    @meetings = Meeting.where(user_id: current_user)
+    @meetings = Meeting.where(user_id: current_user).order(scheduled_time: :asc)
     authorize @meetings
   end
 

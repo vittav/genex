@@ -26,30 +26,23 @@
         </div>
     </nav>
     <!-- The Cards -->
-    <div class="separation"></div>
-    <% @experiences.each do |experience| %>
-      <%= link_to experience_path(experience), class: "text-decoration-none" do %>
-      <div class="notification">
-        <div class="notification-content col-2">
-          <% if experience.photo.attached? == true %>
-            <%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <img src="https://kitt.lewagon.com/placeholder/users/random" alt="">
+    <div class="container m-5">
+      <div class="cards">
+        <% @experiences.each do |experience| %>
+          <%= link_to experience_path(experience), class: "text-decoration-none" do %>
+            <div class="card-trip">
+              <img src="https://kitt.lewagon.com/placeholder/users/random" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= "#{experience.first_name} #{experience.last_name}" %></h2>
+                  <p><%= "#{experience.age} years" %></p>
+                </div>
+                <h2 class="card-trip-pricing">£99.99</h2>
+              </div>
+              <%#= link_to "Book a Meeting", new_experience_meeting_path(experience), class: "btn btn-primary justify-content-center" %>
+            </div>
           <% end %>
-        </div>
-        <div class="notification-content col-2">
-          <p><%= "#{experience.first_name} #{experience.last_name}" %></p>
-        </div>
-        <div class="notification-content col-1">
-          <p><%= "#{experience.age} years" %></p>
-        </div>
-        <div class="notification-content col-1">
-          <p><%= "name" %></p>
-        </div>
-        <div class="notification-content col-1">
-          <p><%= "name" %></p>
-        </div>
+        <% end %>
       </div>
-      <% end %>
-    <% end %>
+    </div>
 </div>

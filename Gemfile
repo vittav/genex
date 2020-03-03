@@ -43,5 +43,9 @@ gem 'pundit'
 # Gem used to implement datepicker in date forms
 gem 'bootstrap-datepicker-rails'
 
+
+gem 'pg_search', '~> 2.3.0'
+
 # Gem used to implement geocoding (geo localization)
 gem 'geocoder'
+
